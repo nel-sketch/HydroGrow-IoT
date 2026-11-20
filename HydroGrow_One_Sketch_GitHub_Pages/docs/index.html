@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HydroGrow | Cloud Control</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="top">
+  <div class="brandwrap">
+    <img src="assets/hydrogrow-logo.jpg" alt="HydroGrow logo" class="toplogo">
+    <div class="brandtext">
+      <strong>HydroGrow</strong>
+      <span class="tag">CLOUD CONTROL</span>
+      <small class="subtitle">A Smart IoT based Automated Hydroponic Fodder Production and Monitoring System</small>
+    </div>
+  </div>
+  <div id="connection" class="offline">Not signed in</div>
+</header>
+<main>
+<section class="intro">
+  <div class="introcopy">
+    <p class="eyebrow">INTELLIGENT IRRIGATION</p>
+    <h1>Water intelligence, wherever you are.</h1>
+    <p>Monitor growing conditions, review alerts, and request safe irrigation commands.</p>
+  </div>
+  <div class="introbrand panel logo-panel">
+    <img src="assets/hydrogrow-logo.jpg" alt="HydroGrow branded logo" class="hero-logo">
+  </div>
+  <button id="signout" class="secondary hidden">Sign out</button>
+</section>
+<section id="login" class="login panel"><h2>Administrator sign in</h2><p>Use the account created in your Supabase project. Keep sign-up disabled for unauthorized users.</p><form id="loginform"><label>Email<input type="email" id="email" autocomplete="username" required></label><label>Password<input type="password" id="password" autocomplete="current-password" required></label><button type="submit">Sign in securely</button></form><p id="loginerror" role="alert"></p></section>
+<section id="app" class="hidden"><div class="section-head"><h2>Live system overview</h2><span id="updated">Awaiting readings</span></div>
+<div class="metrics"><article class="panel metric"><p>Temperature</p><h3 id="temp">—</h3><small>Air temperature</small></article><article class="panel metric"><p>Humidity</p><h3 id="humidity">—</h3><small>Relative humidity</small></article><article class="panel metric"><p>pH sensor voltage</p><h3 id="ph">—</h3><small>Not calibrated as pH</small></article><article class="panel metric"><p>Water level</p><h3 id="water">—</h3><small>Float switch</small></article></div>
+<div class="columns"><section class="panel"><h2>Irrigation control</h2><p class="muted">Commands are queued; the Uno decides whether they are safe. ON is limited to 30 seconds and blocked by low water.</p><div id="pumpstate" class="pill">Pump status unknown</div><div class="btnrow"><button id="on" disabled>Turn pump ON</button><button id="off" class="secondary">Turn pump OFF</button><button id="auto" class="secondary">Auto mode</button></div><p id="commandstatus" role="status">No command requested.</p></section><section class="panel"><h2>Alerts</h2><ul id="alerts"><li>No alerts loaded.</li></ul><small>Cloud alerts are recorded on incoming measurements. Offline alarms are displayed when you open the dashboard.</small></section></div>
+<div class="columns"><section class="panel"><h2>Temperature history</h2><canvas id="trend" width="620" height="210" aria-label="Temperature history chart" role="img"></canvas><p class="muted">Latest 100 telemetry records.</p></section><section class="panel"><h2>Camera view</h2><p class="muted">Provide an HTTPS-accessible, authenticated gateway to view remotely.</p><div id="camera"><div class="placeholder">Camera gateway not configured</div></div></section></div>
+<section class="panel"><h2>Recent pump commands</h2><div class="tablewrap"><table><thead><tr><th>Requested</th><th>Command</th><th>Status</th></tr></thead><tbody id="commands"><tr><td colspan="3">No commands yet</td></tr></tbody></table></div></section>
+</section><footer>HydroGrow GitHub Pages Edition · Pump safety is enforced on the Arduino Uno · Never use public unsecured camera streaming.</footer></main>
+<script src="config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="app.js"></script></body></html>

@@ -1,0 +1,2 @@
+[functions.device]
+verify_jwt = false
